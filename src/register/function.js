@@ -17,7 +17,7 @@ export const register = (initToolbar = false) => {
     } else {
       addons.add(PANEL_ID, {
         type: types.PANEL,
-        title: 'Root attribute',
+        title: 'Skin',
         render: ({active}) => (
           <RootAttributePanel key={PANEL_ID} api={api} active={active} />
         )

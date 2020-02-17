@@ -28,7 +28,7 @@
     "new-parens": 0,
     "no-bitwise": 0,
     "no-cond-assign": 2,
-    "no-console": 2,
+    "no-console": 1,
     "no-constant-condition": 2,
     "no-debugger": 2,
     "no-delete-var": 2,
