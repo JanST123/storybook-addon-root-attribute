@@ -19,6 +19,7 @@ const SwitchButton = styled(Button)(() => ({
 
 const DEFAULT_VALUES = {
   root: 'html',
+  root2: null,
   attribute: 'class',
   defaultState: {},
   states: []
@@ -151,11 +152,12 @@ export default class RootAttributePanel extends React.Component {
 
   emit() {
     const {api} = this.props;
-    const {currentOptions: {root, attribute}, collectedStates} = this.state;
+    const {currentOptions: {root, root2, attribute}, collectedStates} = this.state;
     const currentState = collectedStates.find((st) => !!st.selected);
 
     api.emit(EVENTS.UPDATE, {
       root,
+      root2,
       attribute,
       currentState
     });

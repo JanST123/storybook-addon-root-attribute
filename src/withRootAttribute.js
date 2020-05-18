@@ -19,6 +19,8 @@ const updateRootAttribute = ({root = 'html', attribute, currentState, root2}) =>
     element.setAttribute(attribute, currentState.value);
   }
 
+  console.log('root2', root2);
+
   if (root2) {
     const element2 = (() => {
       if (root2 === 'body') {
