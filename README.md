@@ -4,6 +4,9 @@ Storybook Addon Root Attribute to switch html, body or some element attribute at
 
 ## [Demo](https://storybook-addon-root-attribute.leopard.in.ua)
 
+## This fork
+This fork renamed the Tab to "Skins" and also allows a `root2` attribute and a `value2` attribute in the state to change more than one node
+
 ## Installation
 
 ```sh
@@ -89,6 +92,7 @@ Configuration params for `rootAttribute` parameter:
 | **Name**     | _Default_ | _Variants_                                                                                          | **Description**                                                                                                         |
 | ------------ | --------- | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | root         | 'html'    | 'html', 'body', or first element returned by 'document.querySelector(), or if none found -- 'html'' | Root node, which attribute will changed by addon                                                                        |
+| root2         | null    | 'html', 'body', or first element returned by 'document.querySelector(), or if none found -- 'html'' | A second Root node, which attribute will changed by addon                                                                        |
 | attribute    | 'class'   | any valid attribute name                                                                            | Attribute name                                                                                                          |
 | defaultState | {}        | should contain `name` and `value`                                                                   | Default state for attribute. Value `nil` will remove attribute from root                                                |
 | states       | []        | array with objects, which contain unique `name` and `value` for attribute                           | All needed states for attribute values. Each object should contain unique `name` (for button) and `value` for attribute |
@@ -100,19 +104,23 @@ addDecorator(withRootAttribute);
 addParameters({
   rootAttribute: {
     root: "html",
+    root2: "#cssprops",
     attribute: "class",
     defaultState: {
       name: "Default",
-      value: null
+      value: null,
+      value2: null
     },
     states: [
       {
         name: "Dark",
         value: "dark"
+        value2: "dark.props.css"
       },
       {
         name: "A11Y",
-        value: "accessibility"
+        value: "accessibility",
+        value2: "dark.props.css"
       }
     ]
   }
