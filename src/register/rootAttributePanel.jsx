@@ -91,7 +91,7 @@ export default class RootAttributePanel extends React.Component {
       if (mergedList.filter((st) => !!st.selected).length > 1) {
         mergedList = [
           {...mergedList[0], selected: true},
-          ...mergedList.slice(1).map(({name, value}) => ({name, value}))
+          ...mergedList.slice(1).map(({name, value, value2}) => ({name, value, value2}))
         ];
       }
 
@@ -107,15 +107,16 @@ export default class RootAttributePanel extends React.Component {
 
   onSelected(selectedName) {
     const {collectedStates} = this.state;
-    const newStates = collectedStates.map(({name, value}) => {
+    const newStates = collectedStates.map(({name, value, value2}) => {
       if (selectedName === name) {
         return {
           name,
           value,
+          value2,
           selected: true
         };
       }
-      return {name, value};
+      return {name, value, value2};
     });
     this.setState((prevState) => ({
       ...prevState,
@@ -127,15 +128,16 @@ export default class RootAttributePanel extends React.Component {
 
   resetToDefaultState() {
     const {collectedStates} = this.state;
-    const newStates = collectedStates.map(({name, value}, index) => {
+    const newStates = collectedStates.map(({name, value, value2}, index) => {
       if (index === 0) {
         return {
           name,
           value,
+          value2,
           selected: true
         };
       }
-      return {name, value};
+      return {name, value, value2};
     });
     this.setState((prevState) => ({
       ...prevState,
